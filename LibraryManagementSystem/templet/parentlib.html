@@ -1,0 +1,47 @@
+
+       {% load static %}
+
+
+      {% load bootstrap5 %}
+      {% bootstrap_css %}
+      {% bootstrap_javascript %}
+<title>
+  {% block title %}
+  parent page
+  {% endblock %}
+</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+  {% block navbar %}
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'dummy1' %}">LibraryMS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="{% url 'dummy1' %}">Home</a>
+        <a class="nav-link" href="{% url 'home' %}">Book Details</a>
+        <a class="nav-link" href="{% url 'add' %}">Library Details</a>
+        {% if request.session.myuser != None %}
+
+        <a class="nav-link" href="{% url 'logout' %}">LOG-OUT</a>
+        {% else %}
+        <a class="nav-link btn btn-danger" href="{% url 'login' %}">Login-Page</a>
+        {% endif %}
+<form class="d-flex" align="right" method="get"action="search">
+        <input class="form-control me-2" name='tbsearch' type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</nav>
+  {% endblock %}
+  {% block content %}
+    <h1>Hello World!</h1>
+  {% endblock %}
+  </body>

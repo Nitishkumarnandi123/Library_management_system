@@ -1,0 +1,41 @@
+{% extends 'parentlib.html' %}
+{% block content %}
+<div class="container">
+<h2 align="center"> LIBRARY LIST</h2>
+<table border="1" class="table">
+<thead>
+<tr>
+    <th>Book_Name</th>
+     <th>Auther_Name</th>
+     <th>Course_Name</th>
+     <th>Semester_Name</th>
+     <th>Price</th>
+    <th>Update</th>
+    <th>Delete</th>
+</tr>
+    </thead>
+    {% for b1 in book %}
+    <tr>
+        <td>{{b1.bname}}</td>
+        <td>{{b1.auther}}</td>
+        <td>{{b1.course}}</td>
+        <td>{{b1.semester}}</td>
+        <td>{{b1.price}}</td>
+        <td><a href="{% url 'edit' b1.id %}" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Update</a> </td>
+         <td><a href="{% url 'delete' b1.id %}" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Delete</a> </td>
+    </tr>
+    {% endfor %}
+    <tbody>
+
+    </tbody>
+
+
+
+
+</table>
+    <a class="btn btn-primary" href="{% url 'add' %}"> Add new student</a>
+</div>
+{% endblock %}
+{% block title %}
+book list
+{% endblock %}

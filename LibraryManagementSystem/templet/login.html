@@ -1,0 +1,38 @@
+{% extends 'parentlib.html' %}
+{% block title %}
+Registration Page
+
+{% endblock %}
+{% block navbar %}
+{% endblock %}
+{% block content %}
+<div class="container p-5">
+<form method="post">
+    {% csrf_token %}
+   <h2 align="center">LOGIN PAGE</h2>
+
+  <h3 style="color:red">{{msg}}</h3>
+
+  <div class="mb-3">
+    <label for="exampleInputusername1" class="form-label">User Name</label>
+    <input type="text" class="form-control" id="exampleInputusername1" name="tbusername" aria-describedby="emailHelp">
+    <div id="usernameHelp" class="form-text"> </div>
+  </div>
+
+
+
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="tbpass">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary form-control">LOGIN</button>
+  <br><br>
+  <a class="btn btn-info form-control" href="{% url 'register' %}">NOT REGISTERED SIGNUP</a>
+
+
+</form>
+</div>
+{% endblock %}

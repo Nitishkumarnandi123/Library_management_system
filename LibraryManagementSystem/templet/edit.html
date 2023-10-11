@@ -1,0 +1,39 @@
+{% extends 'parentlib.html' %}
+{% block title %}
+edit page
+{% endblock %}
+{% block content %}
+<h1>Edit library Details</h1>
+<form method="post">
+    {% csrf_token %}
+    Book-name:<input type="text" name="tbname" value="{{bookdetail.bname}}"></br><br>
+
+    Auther-name:<select name="ddlauther">
+    <option>{{bookdetail.auther}}</option>
+    {% for a in authors %}
+    <option>{{a.autname}}</option>
+    {% endfor %}
+</select><br><br>
+
+    Course-name:<select name="ddlcourse">
+    <option>{{bookdetail.course}}</option>
+    {% for c in course %}
+    <option>{{c.cname}}</option>
+    {% endfor %}
+</select><br><br>
+
+    Semester-number:<select name= "ddlsem">
+    <option>{{bookdetail.semester}}</option>
+    {% for s in semesters %}
+    <option>{{s.sname}}</option>
+    {% endfor %}
+
+</select><br><br>
+    Price<input type="text" name="tbprice" value="{{bookdetail.price}}"> <br><br>
+    <input type="submit" value="update"/><br>
+
+
+
+</form>
+
+{% endblock %}

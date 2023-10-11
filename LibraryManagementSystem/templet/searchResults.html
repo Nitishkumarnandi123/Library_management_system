@@ -1,0 +1,26 @@
+{% extends 'parentlib.html' %}
+{% block content %}
+<table border="1">
+  <thead>
+  <tr>
+    <th>Book Name</th>
+    <th>Auther Name</th>
+    <th>Course Name</th>
+    <th>Semester</th>
+    <th>Price</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  {% for r in res %}
+  <tr>
+    <td>{{r.bname}}</td>
+    <td>{{r.auther}}</td>
+    <td>{{r.course}}</td>
+    <td>{{r.semester}}</td>
+    <td>{{r.price}}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

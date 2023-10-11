@@ -1,0 +1,35 @@
+{% extends 'parentlib.html' %}
+{% block title %}
+Book Details
+{% endblock %}
+{% block content %}
+
+<center>
+<form method="post">
+  {% csrf_token %}
+    Book-name:<input type="text" name="tbname"></br><br>
+
+    Auther-name:<select  name="ddlauther" id="ddlauther">
+        {% for a in authors %}
+         <option>{{a.autname}}</option>
+          {% endfor %}
+        </select></br><br>
+
+    Course-name:<select name="ddlcourse" id="ddlcourse">
+          {% for c in courses %}
+            <option>{{c.cname}}</option>
+           {% endfor %}
+            </select></br><br>
+
+     Semester-number:<select name= "ddlsem" id="ddlsem">
+            {% for s in semesters %}
+            <option>{{s.sname}}</option>
+           {% endfor %}
+            </select></br><br>
+
+      Price<input type="text" name="tbprice"><br><br>
+    <input type="submit" value="Save">
+
+</form>
+    </center>
+{% endblock %}
